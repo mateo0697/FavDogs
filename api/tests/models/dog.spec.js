@@ -9,12 +9,12 @@ describe('Dog model', () => {
   describe('Validators', () => {
     beforeEach(() => Dog.sync({ force: true }));
     describe('name', () => {
-      xit('should throw an error if name is null', (done) => {
+      it('should throw an error if name is null', (done) => {
         Dog.create({})
           .then(() => done(new Error('It requires a valid name')))
           .catch(() => done());
       });
-      xit('should work when its a valid name', () => {
+      it('should work when its a valid name', () => {
         Dog.create({ name: 'Pug' });
       });
     });

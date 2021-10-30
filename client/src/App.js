@@ -5,8 +5,10 @@ import Log from "./components/Log.js"
 import Home from "./components/Home.js"
 import Data from "./components/Data.js"
 import AddDog from "./components/AddDog.js"
+import { connect } from "react-redux";
+import {getDogs} from "./actions/index.js"
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Route exact path="/">
@@ -19,10 +21,12 @@ function App() {
       <Route path="/addDog">
         <AddDog/>
       </Route>
-
-
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {dogs: state};
+};
+
+export default connect(mapStateToProps,{getDogs})(App);;
