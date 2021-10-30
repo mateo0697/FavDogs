@@ -7,6 +7,10 @@ const { Dog, conn } = require('../../src/db.js');
 const agent = session(app);
 const dog = {
   name: 'Pug',
+  height: 12,
+  weight:12,
+  life_span:12,
+  weightCOMP:12
 };
 
 describe('Videogame routes', () => {
@@ -20,5 +24,7 @@ describe('Videogame routes', () => {
     it('should get 200', () =>
       agent.get('/dogs').expect(200)
     );
+    it("should get query type dogs",()=>
+  agent.get("/dogs/?name=a").expect(perros.length.toequal(178)))
   });
 });
